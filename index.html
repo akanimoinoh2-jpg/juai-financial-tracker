@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUAI Financial Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+<h1>JUAI Financial Tracker</h1>
+<nav>
+<button class="btn btn-primary" onclick="showSection('dashboard')">Dashboard</button>
+<button class="btn" onclick="showSection('add')">Add Transaction</button>
+<button class="btn btn-danger" onclick="logout()">Logout</button>
+</nav>
+</header>
+
+<div class="container">
+
+<!-- LOGIN -->
+<section id="loginSection">
+<div class="card">
+<h2>Login</h2>
+<input type="text" id="username" placeholder="Enter username" />
+<input type="password" id="password" placeholder="Enter password" />
+<button class="btn btn-primary" onclick="login()">Login</button>
+</div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="hidden">
+<div class="grid">
+<div class="card">
+<h3>Total Balance</h3>
+<p id="balance" class="balance">₦0</p>
+</div>
+<div class="card">
+<h3>Total Income</h3>
+<p id="income" class="good">₦0</p>
+</div>
+<div class="card">
+<h3>Total Expense</h3>
+<p id="expense" class="bad">₦0</p>
+</div>
+<div class="card">
+<h3>Monthly Budget</h3>
+<input type="number" id="budgetInput" placeholder="Set budget (₦)" />
+<button class="btn btn-primary" onclick="setBudget()">Save Budget</button>
+<p id="budgetStatus"></p>
+</div>
+</div>
+
+<div id="alertBox"></div>
+
+<div class="card">
+<h3>Transactions</h3>
+<table>
+<thead>
+<tr><th>Title</th><th>Amount</th><th>Type</th><th>Action</th></tr>
+</thead>
+<tbody id="transactionList"></tbody>
+</table>
+</div>
+</section>
+
+<!-- ADD TRANSACTION -->
+<section id="add" class="hidden">
+<div class="card">
+<h2>Add Transaction</h2>
+<input type="text" id="title" placeholder="Transaction Title" />
+<input type="number" id="amount" placeholder="Amount" />
+<select id="type">
+<option value="income">Income</option>
+<option value="expense">Expense</option>
+</select>
+<button class="btn btn-success" onclick="addTransaction()">Save</button>
+</div>
+</section>
+<script src="script.js"></script>
+</div>
+  
+</body>
+</html>
